@@ -1,0 +1,9 @@
+.context-menu {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	width: 200px;
+	background-color: var(--background-dark);
+	border: 1px solid var(--background-main);
+	padding: 10px 0;
+}
