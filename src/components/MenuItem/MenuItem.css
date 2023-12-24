@@ -1,8 +1,13 @@
-.menu-item {
+.menu__item {
+	position: relative;
 	padding: 10px;
 	user-select: none;
 }
 
-.menu-item:hover {
+.menu__item:hover {
 	background-color: var(--background-main);
+}
+
+.menu__item > .menu {
+	position: absolute;
 }

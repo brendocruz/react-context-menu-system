@@ -1,14 +1,19 @@
-import { FC, ReactNode, ReactElement, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 import { useMenuContext } from '../../store/menuContext';
 import { useRandomId } from '../../hooks';
+import { ContextMenu, MenuItemProps } from '..';
 
 interface MenuAreaProps {
-	children?: ReactNode
-	menu: ReactElement
-	className?: string
+	children?: ReactNode;
+	className?: string;
+	menu?: MenuItemProps[];
 }
 
-export const MenuArea: FC<MenuAreaProps> = ({ children = '', menu, className = '' }) => {
+export const MenuArea: FC<MenuAreaProps> = ({
+	children = '',
+	menu = [],
+	className = ''
+}) => {
 	const {
 		activeMenu,
 		isActive,
@@ -34,7 +39,9 @@ export const MenuArea: FC<MenuAreaProps> = ({ children = '', menu, className = '
 				event.stopPropagation();
 			}}>
 			{children}
-			{isActive && currentMenuId === menuId && menu}
+			{isActive && currentMenuId === menuId && (
+				<ContextMenu menu={menu} />
+			)}
 		</div>
 	);
 };
